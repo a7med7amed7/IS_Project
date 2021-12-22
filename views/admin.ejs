@@ -1,0 +1,78 @@
+<%- include('parts/headers.ejs')%>
+<link rel="stylesheet" href="/admin.css" />
+<%- include('parts/nav.ejs')%>
+
+<form action="/delete" method="post">
+  <h3>DELETE USER</h3>
+  <input type="number" placeholder="User ID" name="id" />
+  <button>DELETE USER</button>
+</form>
+<hr />
+<form method="post" action="/register">
+  <input type="text" placeholder="Name" name="name" />
+  <input type="number" placeholder="Age" name="age" />
+  <input type="number" placeholder="ID" name="id" />
+  <input type="password" placeholder="Password" name="password" />
+  <input type="text" placeholder="Address" name="address" />
+  <input type="text" placeholder="GPA" name="gpa" />
+  <div class="slct">
+    <div class="select-dropdown">
+      <select id="sel1" onchange="giveSelection(this.value)" name="ref_college">
+        <option value="1">Computers and Information</option>
+        <option value="2">Medicine</option>
+        <option value="3">Engineering</option>
+        <option value="4">Languages</option>
+        <option value="5">Literature</option>
+        <option value="6">Science</option>
+      </select>
+    </div>
+    <div class="select-dropdown">
+      <select id="sel2" name="ref_department">
+        <option data-option="1" value="1">Computer Science</option>
+        <option data-option="1" value="1">Information Technology</option>
+        <option data-option="1" value="1">Information Systems</option>
+        <option data-option="1" value="1">Multi media</option>
+        <option data-option="2" value="2">Chemistry and Bioche</option>
+        <option data-option="2" value="2">Immunobiology</option>
+        <option data-option="2" value="2">Pharmacology</option>
+        <option data-option="3" value="3">Civil Engineering</option>
+        <option data-option="3" value="3">Software Engineering</option>
+        <option data-option="3" value="3">Nuclear Engineering</option>
+        <option data-option="4" value="4">English</option>
+        <option data-option="4" value="4">Arabic</option>
+        <option data-option="4" value="4">japanese</option>
+        <option data-option="5" value="5">Egyptian</option>
+        <option data-option="5" value="5">English</option>
+        <option data-option="5" value="5">Japanese</option>
+        <option data-option="6" value="6">Chemisrty</option>
+        <option data-option="6" value="6">Physics</option>
+        <option data-option="6" value="6">Biology</option>
+      </select>
+    </div>
+    <div class="select-dropdown">
+      <select name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+  </div>
+
+  <button>Sign Up</button>
+</form>
+
+<script>
+  var sel1 = document.querySelector("#sel1");
+  var sel2 = document.querySelector("#sel2");
+  var options2 = sel2.querySelectorAll("option");
+
+  function giveSelection(selValue) {
+    sel2.innerHTML = "";
+    for (var i = 0; i < options2.length; i++) {
+      if (options2[i].dataset.option === selValue) {
+        sel2.appendChild(options2[i]);
+      }
+    }
+  }
+
+  giveSelection(sel1.value);
+</script>

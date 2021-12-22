@@ -1,0 +1,42 @@
+<%- include('parts/headers.ejs')%>
+<link rel="stylesheet" href="/dashboard.css" />
+<%- include('parts/nav.ejs')%>
+<div class="all">
+  <div class="msg">
+    <ion-icon name="checkmark-outline"></ion-icon>
+    <h2>Your Data Was Sent.</h2>
+  </div>
+
+  <div class="data">
+    <div class="obj">
+      <div class="key">Name</div>
+      <div class="val"><%= user.name%></div>
+    </div>
+    <div class="obj">
+      <div class="key">Age</div>
+      <div class="val"><%= user.age%></div>
+    </div>
+    <div class="obj">
+      <div class="key">ID</div>
+      <div class="val"><%= user.id%></div>
+    </div>
+    <div class="obj">
+      <div class="key">Address</div>
+      <div class="val"><%= user.address%></div>
+    </div>
+    <div class="obj">
+      <div class="key">Gender</div>
+      <div class="val"><%= user.gender%></div>
+    </div>
+    <div class="obj">
+      <div class="key">GPA</div>
+      <div class="val"><%= user.gpa%></div>
+    </div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<h5>If You want any account updating just call us for security reasons</h5>

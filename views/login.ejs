@@ -1,0 +1,58 @@
+<%- include('parts/headers.ejs')%>
+    <link rel="stylesheet" href="/login.css" />
+    <%- include('parts/nav.ejs')%>
+    <div class="back">
+      <div class="blue"></div>
+      <div class="white"></div>
+    </div>
+    <div class="container">
+      <div class="left"></div>
+      <div class="right">
+        <a class="login" href="/register">Create an Account</a>
+        <h2 class="create">Login to Your Account</h2>
+        <form method="POST" action="/login">
+          <input type="number" placeholder="ID" name="id" />
+          <input type="password" placeholder="Password" name="password" />
+
+          <button>Login</button>
+        </form>
+        <div class="err"></div>
+
+      </div>
+      
+    </div>
+<script>
+const form = document.querySelector('form')
+      const errMessage = document.querySelector('.err')
+      errMessage.style.display = 'none';
+      form.addEventListener('submit', async e =>{
+        e.preventDefault();
+
+        const id = form.id.value;
+        const password = form.password.value;
+
+        try{
+          const res = await fetch('/login',{
+            method:"POST",
+            body:JSON.stringify({id,password}),
+            headers:{'Content-Type':'application/json'}
+          })
+          const data =await res.json();
+          console.log(data)
+          if(data.message){
+      errMessage.style.display = 'block';
+
+            errMessage.textContent = data.message;
+            
+          }else{
+            location.assign('/')
+          }
+        }catch(err){
+          console.log(err)
+        }
+      })
+    </script>
+  </script>
+
+  </body>
+</html>

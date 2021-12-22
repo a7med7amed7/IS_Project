@@ -1,0 +1,41 @@
+.all {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+}
+.msg {
+  font-size: 30px;
+  margin: auto;
+  text-align: center;
+  width: 50%;
+}
+
+.msg ion-icon {
+  font-size: 50px;
+  color: green;
+  border: 1px solid green;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.data .obj {
+  text-align: center;
+  padding: 10px;
+  margin: 4px;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+.data .obj .key {
+  font-size: 20px;
+  font-weight: 600;
+}
+.data .obj .val {
+  font-size: 25px;
+  font-weight: 800;
+}
+h5 {
+  text-align: center;
+}

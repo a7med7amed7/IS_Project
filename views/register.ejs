@@ -1,0 +1,140 @@
+<%- include('parts/headers.ejs')%>
+    <link rel="stylesheet" href="/register.css" />
+    <%- include('parts/nav.ejs')%>
+    <div class="back">
+      <div class="blue"></div>
+      <div class="white"></div>
+    </div>
+    <div class="container">
+      <div class="left"></div>
+      <div class="right">
+        <a class="login" href="/login">Already have an account?</a>
+        <h2 class="create">Create Your Account</h2>
+        <form method="post" action="/register">
+          <input type="text" placeholder="Name" name="name" />
+          <input type="number" placeholder="Age" name="age" />
+          <input type="number" placeholder="ID" name="id" />
+          <input type="password" placeholder="Password" name="password" />
+          <input type="text" placeholder="Address" name="address" />
+          <input type="text" placeholder="GPA" name="gpa" />
+          <div class="slct">
+            <!-- <div class="select-dropdown">
+              <select name="ref_college" class="box1"  onchange="giveSelection(this.value)>
+                <option value="1">Computer and Information</option>
+                <option value="2">Languages</option>
+                <option value="3">Physics and Science</option>
+              </select>
+            </div>
+            <div class="select-dropdown">
+              <select name="ref_department" class="box2">
+                <option value="1" data-option='1'>Computer Science</option>
+                <option value="2" data-option='2'>Information Technology</option>
+                <option value="3" data-option='2'>Information Systems</option>
+              </select>
+            </div> -->
+            <div class="select-dropdown">
+            <select id="sel1" onchange="giveSelection(this.value)" name='ref_college'>
+              <option value="1">Computers and Information</option>
+              <option value="2">Medicine</option>
+              <option value="3">Engineering</option>
+              <option value="4">Languages</option>
+              <option value="5">Literature</option>
+              <option value="6">Science</option>
+            </select>
+          </div>
+          <div class="select-dropdown">
+
+            <select id="sel2" name="ref_department">
+              <option data-option="1" value="1">Computer Science</option>
+              <option data-option="1" value="1">Information Technology</option>
+              <option data-option="1" value="1">Information Systems</option>
+              <option data-option="1" value="1">Multi media</option>
+              <option data-option="2" value="2">Chemistry and Bioche              </option>
+              <option data-option="2" value="2">Immunobiology</option>
+              <option data-option="2" value="2">Pharmacology</option>
+              <option data-option="3" value="3">Civil Engineering
+              </option>
+              <option data-option="3" value="3">Software Engineering
+              </option>
+              <option data-option="3" value="3">Nuclear Engineering
+              </option>
+              <option data-option="4" value="4">English</option>
+              <option data-option="4" value="4">Arabic</option>
+              <option data-option="4" value="4">japanese</option>
+              <option data-option="5" value="5">Egyptian</option>
+              <option data-option="5" value="5">English</option>
+              <option data-option="5" value="5">Japanese</option>
+              <option data-option="6" value="6">Chemisrty</option>
+              <option data-option="6" value="6">Physics</option>
+              <option data-option="6" value="6">Biology</option>
+            </select>
+          </div>
+            <div class="select-dropdown">
+              <select name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+          </div>
+
+          <button>Sign Up</button>
+        </form>
+        <div class="err"></div>
+      </div>
+    </div>
+    <script>
+
+var sel1 = document.querySelector('#sel1');
+var sel2 = document.querySelector('#sel2');
+var options2 = sel2.querySelectorAll('option');
+
+function giveSelection(selValue) {
+  sel2.innerHTML = '';
+  for(var i = 0; i < options2.length; i++) {
+    if(options2[i].dataset.option === selValue) {
+      sel2.appendChild(options2[i]);
+    }
+  }
+}
+
+giveSelection(sel1.value);
+
+
+      const form = document.querySelector('form')
+      const errMessage = document.querySelector('.err')
+      errMessage.style.display = 'none';
+      form.addEventListener('submit', async e =>{
+        e.preventDefault();
+        const name = form.name.value;
+        const age = form.age.value;
+        const id = form.id.value;
+        const password = form.password.value;
+        const address = form.address.value;
+        const gpa = form.gpa.value;
+        const ref_college = form.ref_college.value;
+        const ref_department = form.ref_department.value;
+        const gender = form.gender.value;
+        try{
+          const res = await fetch('/register',{
+            method:"POST",
+            body:JSON.stringify({name,age,id,password,address,gpa,ref_college,ref_department,gender}),
+            headers:{'Content-Type':'application/json'}
+          })
+          const data =await res.json();
+          console.log(data)
+          if(data.message){
+      errMessage.style.display = 'block';
+
+            errMessage.textContent = data.message;
+            
+          }else{
+            location.assign('/')
+          }
+        }catch(err){
+          console.log(err)
+        }
+      })
+    </script>
+
+  </body>
+</html>

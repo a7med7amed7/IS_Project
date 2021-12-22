@@ -1,0 +1,74 @@
+<%- include('parts/headers.ejs')%>
+    <link rel="stylesheet" href="/home.css" />
+    <%- include('parts/nav.ejs')%>
+    <div class="info">
+      <h2 class="big">Join Us For Better and Easy Education</h2>
+      <p class="desc">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, velit.
+        Beatae id repellat iure, necessitatibus laboriosam placeat numquam
+        aspernatur consequuntur dolorum dicta? Suscipit reiciendis itaque
+        maiores harum impedit debitis quidem!
+      </p>
+    <%if(!user) {%>
+      <a class="direct" href="/register">Sign up</a>
+      <a class="direct" href="/login">log in</a>
+      <%}else{%>
+        <% if(user.is_admin){%><a class="direct" href="/admin">Admin Panel</a><%}%>
+        <a class="direct" href="/dashboard">Dashboard</a>
+        <a class="direct" href="/logout">log out</a>
+        <%}%>
+
+    </div>
+    <div class="over">Over <span>40K+</span> Students are working with us</div>
+    <div class="clg">
+      <div class="card">
+        <ion-icon name="logo-javascript"></ion-icon>
+        <div class="name">Computer Science</div>
+        <div class="desc">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum
+          facere fugiat iusto similique nihil eveniet sunt unde id dicta dolorem
+          hic
+        </div>
+      </div>
+      <div class="card">
+        <ion-icon name="logo-euro"></ion-icon>
+        <div class="name">Finance</div>
+        <div class="desc">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum
+          facere fugiat iusto similique nihil eveniet sunt unde id dicta dolorem
+          hic
+        </div>
+      </div>
+      <div class="card">
+        <ion-icon name="airplane-outline"></ion-icon>
+        <div class="name">Flying</div>
+        <div class="desc">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum
+          facere fugiat iusto similique nihil eveniet sunt unde id dicta dolorem
+          hic
+        </div>
+      </div>
+      <div class="card">
+        <ion-icon name="bar-chart-outline"></ion-icon>
+        <div class="name">Marketing</div>
+        <div class="desc">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum
+          facere fugiat iusto similique nihil eveniet sunt unde id dicta dolorem
+          hic
+        </div>
+      </div>
+      <div class="card">
+        <ion-icon name="baseball-outline"></ion-icon>
+        <div class="name">Sport</div>
+        <div class="desc">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum
+          facere fugiat iusto similique nihil eveniet sunt unde id dicta dolorem
+          hic
+        </div>
+      </div>
+    </div>
+    <%if(user) {%> <%=user['name']%> <%} else{%> undefined <%}%>
+
+
+  </body>
+</html>

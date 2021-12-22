@@ -1,0 +1,87 @@
+.info {
+  width: 100%;
+  height: 550px;
+  /* background: url("https://www.signupgenius.com/cms/images/college/tips-how-to-be-successful-college-article-600x400.jpg")
+    no-repeat; */
+  background-image: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 52%),
+      rgb(10 10 10 / 73%)
+    ),
+    url(https://wallpaperaccess.com/full/6592911.jpg);
+  background-size: 100%;
+  text-align: center;
+}
+.info h2 {
+  color: white;
+  font-size: 31px;
+  width: 420px;
+  margin: auto;
+  position: relative;
+  top: 20%;
+}
+.info p {
+  color: white;
+  font-size: 22px;
+  width: 764px;
+  margin: auto;
+  position: relative;
+  top: 30%;
+  z-index: 5;
+}
+.info .direct {
+  text-decoration: none;
+  color: white;
+  border: 1px solid;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 21px;
+  position: relative;
+  top: 40%;
+  margin: 5px;
+}
+.info .direct:hover {
+  border: 0;
+  background-color: rgb(184, 136, 48);
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.over {
+  margin: auto;
+  text-align: center;
+  font-size: 50px;
+  width: 750px;
+  margin-top: 70px;
+}
+.over span {
+  color: #919137;
+  font-family: cursive;
+}
+.clg {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-top: 60px;
+}
+.clg .card {
+  height: 300px;
+  background: #fdf7f7;
+  width: 200px;
+}
+.clg .card ion-icon {
+  font-size: 75px;
+  padding: 5px;
+  position: relative;
+  top: 1px;
+  color: rgb(32, 228, 74);
+}
+.clg .card .name {
+  font-weight: 600;
+  font-size: 20px;
+  padding: 5px;
+  margin-left: 5px;
+}
+.clg .card .desc {
+  font-size: 17px;
+  padding: 4px;
+}
